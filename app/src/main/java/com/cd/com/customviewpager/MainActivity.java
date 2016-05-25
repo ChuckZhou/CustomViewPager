@@ -33,11 +33,27 @@ public class MainActivity extends AppCompatActivity {
         customVPager.setPageMargin(50);
         customVPager.setOffscreenPageLimit(5);
         customVPager.setAdapter(new VpgaerAdapter());
-//        customVPager.setPageTransformer(true ,new AlphaPageTransformer());
-//        customVPager.setPageTransformer(true ,new ScalePageTransformer());
-//        customVPager.setPageTransformer(true ,new RotationPageTransformer());
-        customVPager.setPageTransformer(true, new UpDownMovePageTransformer());
+        int type = getIntent().getIntExtra("type", 0);
+        switch(type){
+            case 0:
+                customVPager.setPageTransformer(true ,new RotationPageTransformer());
+                break;
+            case 1:
+                customVPager.setPageTransformer(true ,new ScalePageTransformer());
+                break;
+            case 2:
+                customVPager.setPageTransformer(true ,new AlphaPageTransformer());
+                break;
+            case 3:
+                customVPager.setPageTransformer(true ,new UpDownMovePageTransformer());
+                break;
+            case 4:
+                isOne = true;
+                findViewById(R.id.fl).setVisibility(View.GONE);
+                break;
 
+        }
+       if(type!=4)return;
         scrollView = (ScrollListenerHorizontalScrollView) findViewById(R.id.hsv);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -59,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
             }
             view.setLayoutParams(layoutParams);
         }
-        isOne = true;
     }
 
 
@@ -68,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
         if (isOne && hasFocus) {
             int childCount = hsv_ll.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                View view= hsv_ll.getChildAt(i);
+                View view = hsv_ll.getChildAt(i);
                 int[] locations = new int[2];
                 view.getLocationOnScreen(locations);
                 int locationX = locations[0] + 100;
                 int viewCenterDis = Math.abs(centerDis - locationX);//view中心距离 屏幕中心X轴的距离
-                int moveHeight =(viewCenterDis*moveY/centerDis);
+                int moveHeight = (viewCenterDis * moveY / centerDis);
                 view.setTranslationY(moveHeight);
             }
             scrollView.setOnScrollListener(new ScrollListenerHorizontalScrollView.ScrollChangeListener() {
@@ -81,22 +96,18 @@ public class MainActivity extends AppCompatActivity {
                 public void scrollChanged(int l, int t, int oldl, int oldt) {
                     int childCount = hsv_ll.getChildCount();
                     for (int i = 0; i < childCount; i++) {
-                        View view= hsv_ll.getChildAt(i);
+                        View view = hsv_ll.getChildAt(i);
                         int[] locations = new int[2];
                         view.getLocationOnScreen(locations);
                         int locationX = locations[0] + 100;
                         int viewCenterDis = Math.abs(centerDis - locationX);//view中心距离 屏幕中心X轴的距离
-                        int moveHeight =(viewCenterDis*moveY/centerDis);
+                        int moveHeight = (viewCenterDis * moveY / centerDis);
                         view.setTranslationY(moveHeight);
+                    }
                 }
-            }
             });
-
-
         }
         super.onWindowFocusChanged(hasFocus);
-
-
     }
 
     class VpgaerAdapter extends PagerAdapter {

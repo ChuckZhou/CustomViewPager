@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+      >
+   <Button
+       android:id="@+id/btn1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="ViewPager旋转切换效果"
+       />
+    <Button
+        android:text="ViewPager缩放切换效果"
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn3"
+        android:text="ViewPager透明度变化切换效果"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn4"
+        android:text="ViewPager仿360助手下载页面 轮播图"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn5"
+        android:text="水平滚动条仿360手机助手 软件下载页面 轮播图"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

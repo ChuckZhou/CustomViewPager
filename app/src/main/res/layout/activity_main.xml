@@ -15,15 +15,8 @@
             android:orientation="horizontal"
             />
     </com.cd.com.customviewpager.ScrollListenerHorizontalScrollView>
-    <View
-        android:layout_below="@id/hsv"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#ff3333"
-        android:layout_centerHorizontal="true"
-        />
     <FrameLayout
-        android:visibility="gone"
+        android:id="@+id/fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"
@@ -32,13 +25,8 @@
             android:id="@+id/custom_vp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="150dp"
+            android:layout_margin="80dp"
             android:clipChildren="false" />
     </FrameLayout>
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:background="#ff3333"
-        android:layout_centerHorizontal="true"
-        />
+
 </RelativeLayout>
