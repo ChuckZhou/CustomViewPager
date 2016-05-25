@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.cd.com.customviewpager.ScrollListenerHorizontalScrollView
+        android:id="@+id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <LinearLayout
+            android:id="@+id/hsv_ll"
+            android:layout_width="match_parent"
+            android:layout_height="410px"
+            android:orientation="horizontal"
+            />
+    </com.cd.com.customviewpager.ScrollListenerHorizontalScrollView>
+    <View
+        android:layout_below="@id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ff3333"
+        android:layout_centerHorizontal="true"
+        />
+    <FrameLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+      >
+        <android.support.v4.view.ViewPager
+            android:id="@+id/custom_vp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="150dp"
+            android:clipChildren="false" />
+    </FrameLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#ff3333"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>
